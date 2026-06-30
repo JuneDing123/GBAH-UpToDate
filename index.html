@@ -12,11 +12,9 @@
       --blue: #0b63b6;
       --blue-light: #25a3df;
       --gold: #ffd66b;
-      --orange: #ff9f43;
       --text: #20344d;
       --muted: #65758a;
-      --bg: #f5f9ff;
-      --card: rgba(255, 255, 255, 0.93);
+      --card: rgba(255, 255, 255, 0.94);
       --border: rgba(207, 225, 242, 0.9);
     }
 
@@ -94,9 +92,9 @@
       z-index: 2;
       width: 100%;
       height: 100%;
-      padding: 46px 64px 34px;
+      padding: 44px 64px 34px;
       display: grid;
-      grid-template-rows: 250px 454px 260px;
+      grid-template-rows: 245px 458px 262px;
       gap: 18px;
     }
 
@@ -149,7 +147,7 @@
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.16);
       border: 1px solid rgba(255, 255, 255, 0.28);
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1;
       font-weight: 800;
       letter-spacing: 0.5px;
@@ -167,19 +165,20 @@
       position: relative;
       z-index: 2;
       color: #fff;
-      font-size: 66px;
-      line-height: 1.06;
+      font-size: 50px;
+      line-height: 1.12;
       letter-spacing: -1px;
       font-weight: 900;
-      margin-bottom: 15px;
+      margin-bottom: 17px;
+      white-space: nowrap;
     }
 
     .hero p {
       position: relative;
       z-index: 2;
       max-width: 1080px;
-      font-size: 22px;
-      line-height: 1.48;
+      font-size: 21px;
+      line-height: 1.45;
       color: rgba(255, 255, 255, 0.94);
       font-weight: 500;
     }
@@ -193,21 +192,13 @@
       overflow: hidden;
     }
 
-    .eyebrow {
-      color: var(--blue);
-      font-size: 15px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      margin-bottom: 9px;
-    }
-
     h2 {
       color: var(--text);
-      font-size: 30px;
-      line-height: 1.15;
+      font-size: 25px;
+      line-height: 1.18;
       font-weight: 900;
+      margin-bottom: 12px;
+      white-space: nowrap;
     }
 
     h3 {
@@ -216,15 +207,15 @@
     }
 
     .upgrade-desc {
-      margin-top: 11px;
+      margin-top: 2px;
       color: var(--muted);
-      font-size: 17px;
-      line-height: 1.36;
+      font-size: 16.5px;
+      line-height: 1.35;
       font-weight: 600;
     }
 
     .upgrade-list {
-      margin-top: 14px;
+      margin-top: 16px;
       display: grid;
       gap: 10px;
     }
@@ -276,15 +267,15 @@
 
     .value-main h3 {
       color: #fff;
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1.22;
       margin-bottom: 9px;
     }
 
     .value-main p {
       color: rgba(255, 255, 255, 0.92);
-      font-size: 18px;
-      line-height: 1.38;
+      font-size: 17.5px;
+      line-height: 1.36;
       font-weight: 600;
     }
 
@@ -301,7 +292,7 @@
       border: 1px solid #f0e1c3;
       color: #526176;
       font-size: 16px;
-      line-height: 1.32;
+      line-height: 1.3;
       font-weight: 650;
     }
 
@@ -318,7 +309,7 @@
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 74px 1fr;
+      grid-template-columns: 116px 1fr;
       gap: 12px;
       align-items: stretch;
     }
@@ -332,9 +323,10 @@
       color: #fff;
       background: linear-gradient(135deg, #0b63b6, #25a3df);
       font-size: 16px;
-      line-height: 1.12;
+      line-height: 1.1;
       font-weight: 900;
-      padding: 8px 5px;
+      padding: 8px 8px;
+      white-space: nowrap;
     }
 
     .timeline-content {
@@ -346,15 +338,16 @@
     }
 
     .timeline-content h3 {
-      font-size: 20px;
+      font-size: 19px;
       line-height: 1.12;
       margin-bottom: 5px;
+      white-space: nowrap;
     }
 
     .timeline-content p {
       color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.32;
+      font-size: 15.2px;
+      line-height: 1.3;
       font-weight: 600;
     }
 
@@ -388,14 +381,15 @@
     }
 
     .chance-item h3 {
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.16;
       margin-bottom: 4px;
+      white-space: nowrap;
     }
 
     .chance-item p {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14.8px;
       line-height: 1.25;
       font-weight: 600;
     }
@@ -415,15 +409,16 @@
     }
 
     .topics-head h2 {
-      font-size: 29px;
+      font-size: 25px;
+      margin-bottom: 0;
     }
 
     .topics-head p {
       max-width: 560px;
       text-align: right;
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.32;
+      font-size: 15.5px;
+      line-height: 1.3;
       font-weight: 600;
     }
 
@@ -435,7 +430,7 @@
 
     .topic {
       height: 146px;
-      padding: 18px;
+      padding: 18px 14px;
       border-radius: 22px;
       color: #fff;
       display: flex;
@@ -459,14 +454,17 @@
     }
 
     .topic-icon {
-      font-size: 35px;
+      font-size: 31px;
       line-height: 1;
+      font-weight: 900;
     }
 
     .topic h3 {
       color: inherit;
-      font-size: 21px;
-      line-height: 1.25;
+      font-size: 19px;
+      line-height: 1.2;
+      white-space: nowrap;
+      letter-spacing: -0.5px;
     }
 
     .signup {
@@ -502,15 +500,16 @@
 
     .signup h2 {
       color: #fff;
-      font-size: 31px;
+      font-size: 29px;
       line-height: 1.15;
       margin-bottom: 12px;
+      white-space: nowrap;
     }
 
     .signup p {
       color: rgba(255, 255, 255, 0.9);
-      font-size: 16.5px;
-      line-height: 1.38;
+      font-size: 16.2px;
+      line-height: 1.36;
       font-weight: 600;
     }
 
@@ -528,9 +527,10 @@
       background: rgba(255, 214, 107, 0.18);
       border: 1px solid rgba(255, 214, 107, 0.42);
       color: #fff3c2;
-      font-size: 14.5px;
+      font-size: 14px;
       line-height: 1.15;
       font-weight: 850;
+      white-space: nowrap;
     }
 
     .qr {
@@ -542,19 +542,12 @@
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
     }
 
-    .qr-placeholder {
+    .qr img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
       border-radius: 15px;
-      border: 2px dashed #a8b6c7;
-      background: #f6faff;
-      color: #758398;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.35;
-      font-weight: 900;
+      display: block;
     }
 
     .footer-left,
@@ -607,7 +600,7 @@
                 GBAH × UpToDate 2026 案例大赛
               </div>
 
-              <h1>把临床经验<br />“卷”成好案例！</h1>
+              <h1>把临床经验“卷”成好案例！</h1>
 
               <p>
                 GBAH 将携手 UpToDate，启动案例大赛合作项目！面向全科医生、护士等临床一线医务人员，
@@ -616,7 +609,6 @@
             </div>
 
             <div class="card">
-              <div class="eyebrow">Ability Upgrade</div>
               <h2>这不是一次“单纯写稿”的活动</h2>
 
               <p class="upgrade-desc">
@@ -647,7 +639,6 @@
 
             <!-- 为什么参加 -->
             <div class="card value-card">
-              <div class="eyebrow">Why Join</div>
               <h2>为什么值得参加？</h2>
 
               <div class="value-main">
@@ -674,12 +665,11 @@
 
             <!-- 时间安排 -->
             <div class="card">
-              <div class="eyebrow">Timeline</div>
               <h2>时间安排抢先看</h2>
 
               <div class="timeline">
                 <div class="timeline-item">
-                  <div class="date">7.15<br />-7.16</div>
+                  <div class="date">7.15-7.16</div>
                   <div class="timeline-content">
                     <h3>案例训练营</h3>
                     <p>
@@ -689,7 +679,7 @@
                 </div>
 
                 <div class="timeline-item">
-                  <div class="date">7.31<br />-9.15</div>
+                  <div class="date">7.31-9.15</div>
                   <div class="timeline-content">
                     <h3>作品打磨</h3>
                     <p>
@@ -699,7 +689,7 @@
                 </div>
 
                 <div class="timeline-item">
-                  <div class="date">9.30<br />-10.15</div>
+                  <div class="date">9.30-10.15</div>
                   <div class="timeline-content">
                     <h3>内部评选</h3>
                     <p>
@@ -709,7 +699,7 @@
                 </div>
 
                 <div class="timeline-item">
-                  <div class="date">2026<br />11月</div>
+                  <div class="date">2026年11月</div>
                   <div class="timeline-content">
                     <h3>第四届金牌高峰会展示</h3>
                     <p>
@@ -722,7 +712,6 @@
 
             <!-- 活动机会 -->
             <div class="card">
-              <div class="eyebrow">Opportunities</div>
               <h2>这次活动，你将有机会</h2>
 
               <div class="chance-list">
@@ -768,7 +757,6 @@
             <div class="card">
               <div class="topics-head">
                 <div>
-                  <div class="eyebrow">Case Topics</div>
                   <h2>投稿案例方向</h2>
                 </div>
 
@@ -780,22 +768,22 @@
               <div class="topics">
                 <div class="topic">
                   <div class="topic-icon">01</div>
-                  <h3>全科临床<br />决策案例</h3>
+                  <h3>全科临床决策案例</h3>
                 </div>
 
                 <div class="topic">
                   <div class="topic-icon">02</div>
-                  <h3>护理评估与<br />照护决策案例</h3>
+                  <h3>护理评估与照护决策案例</h3>
                 </div>
 
                 <div class="topic">
                   <div class="topic-icon">03</div>
-                  <h3>多学科协作 /<br />转诊闭环案例</h3>
+                  <h3>多学科协作/转诊闭环案例</h3>
                 </div>
 
                 <div class="topic">
                   <div class="topic-icon">04</div>
-                  <h3>患者教育与<br />慢病管理案例</h3>
+                  <h3>患者教育与慢病管理案例</h3>
                 </div>
               </div>
             </div>
@@ -804,7 +792,7 @@
             <div class="signup">
               <div class="signup-inner">
                 <div>
-                  <h2>扫码填写<br />报名信息</h2>
+                  <h2>扫码填写信息</h2>
 
                   <p>
                     如果你有兴趣参加本次案例大赛，欢迎扫描二维码填写报名信息。我们将后续同步案例训练营安排、活动细则及相关通知。
@@ -817,8 +805,8 @@
                 </div>
 
                 <div class="qr">
-  <img src="qrcode.png" alt="报名二维码" style="width:100%;height:100%;object-fit:cover;border-radius:15px;">
-</div>
+                  <img src="qrcode.png" alt="报名二维码">
+                </div>
               </div>
             </div>
           </section>
