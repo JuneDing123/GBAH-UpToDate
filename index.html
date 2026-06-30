@@ -94,7 +94,7 @@
       height: 100%;
       padding: 44px 64px 34px;
       display: grid;
-      grid-template-rows: 270px 433px 262px;
+      grid-template-rows: 275px 428px 262px;
       gap: 18px;
     }
 
@@ -107,7 +107,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 30px 38px;
+      padding: 34px 38px;
       border-radius: 34px;
       color: #fff;
       background: linear-gradient(135deg, #073b70 0%, #0b63b6 54%, #25a3df 100%);
@@ -143,7 +143,7 @@
       align-items: center;
       gap: 10px;
       padding: 8px 17px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.16);
       border: 1px solid rgba(255, 255, 255, 0.28);
@@ -169,7 +169,7 @@
       line-height: 1.12;
       letter-spacing: -1px;
       font-weight: 900;
-      margin-bottom: 17px;
+      margin-bottom: 18px;
       white-space: nowrap;
     }
 
@@ -192,6 +192,19 @@
       overflow: hidden;
     }
 
+    .upgrade-card {
+      min-height: 275px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .upgrade-card h2 {
+      margin-bottom: 20px;
+    }
+
     h2 {
       color: var(--text);
       font-size: 25px;
@@ -206,18 +219,9 @@
       font-weight: 900;
     }
 
-    .upgrade-desc {
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 16.5px;
-      line-height: 1.35;
-      font-weight: 600;
-    }
-
     .upgrade-list {
-      margin-top: 16px;
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
     .upgrade-item {
@@ -225,7 +229,7 @@
       grid-template-columns: 34px 1fr;
       align-items: center;
       gap: 10px;
-      padding: 11px 13px;
+      padding: 13px 14px;
       border-radius: 16px;
       background: #f1f7ff;
       color: #263d56;
@@ -315,7 +319,7 @@
     }
 
     .date {
-      min-height: 78px;
+      min-height: 74px;
       border-radius: 18px;
       display: grid;
       place-items: center;
@@ -330,8 +334,8 @@
     }
 
     .timeline-content {
-      min-height: 78px;
-      padding: 12px 16px;
+      min-height: 74px;
+      padding: 11px 16px;
       border-radius: 18px;
       background: #f6fbff;
       border: 1px solid #e3edf8;
@@ -346,51 +350,58 @@
 
     .timeline-content p {
       color: var(--muted);
-      font-size: 15.2px;
-      line-height: 1.3;
+      font-size: 15px;
+      line-height: 1.28;
       font-weight: 600;
     }
 
+    .chance-card {
+      height: 410px;
+      align-self: end;
+      padding-top: 22px;
+      padding-bottom: 22px;
+    }
+
     .chance-list {
-      margin-top: 15px;
+      margin-top: 13px;
       display: grid;
-      gap: 11px;
+      gap: 9px;
     }
 
     .chance-item {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
+      grid-template-columns: 40px 1fr;
+      gap: 11px;
       align-items: center;
-      padding: 13px 15px;
+      padding: 11px 14px;
       border-radius: 18px;
       background: #f1f7ff;
       border: 1px solid #e2edf9;
     }
 
     .num {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 15px;
       display: grid;
       place-items: center;
       background: var(--gold);
       color: #17466e;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 900;
     }
 
     .chance-item h3 {
-      font-size: 18px;
+      font-size: 17.5px;
       line-height: 1.16;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       white-space: nowrap;
     }
 
     .chance-item p {
       color: var(--muted);
-      font-size: 14.8px;
-      line-height: 1.25;
+      font-size: 14.5px;
+      line-height: 1.22;
       font-weight: 600;
     }
 
@@ -493,7 +504,7 @@
       z-index: 2;
       height: 100%;
       display: grid;
-      grid-template-columns: 1fr 150px;
+      grid-template-columns: 1fr 190px;
       gap: 18px;
       align-items: center;
     }
@@ -508,13 +519,13 @@
 
     .signup p {
       color: rgba(255, 255, 255, 0.9);
-      font-size: 16.2px;
-      line-height: 1.36;
+      font-size: 15.8px;
+      line-height: 1.34;
       font-weight: 600;
     }
 
     .reward {
-      margin-top: 13px;
+      margin-top: 12px;
       display: grid;
       gap: 7px;
     }
@@ -527,17 +538,17 @@
       background: rgba(255, 214, 107, 0.18);
       border: 1px solid rgba(255, 214, 107, 0.42);
       color: #fff3c2;
-      font-size: 14px;
+      font-size: 13.5px;
       line-height: 1.15;
       font-weight: 850;
       white-space: nowrap;
     }
 
     .qr {
-      width: 150px;
-      height: 150px;
+      width: 190px;
+      height: 190px;
       padding: 10px;
-      border-radius: 22px;
+      border-radius: 24px;
       background: #fff;
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
     }
@@ -546,7 +557,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 15px;
+      border-radius: 16px;
       display: block;
     }
 
@@ -608,12 +619,8 @@
               </p>
             </div>
 
-            <div class="card">
+            <div class="card upgrade-card">
               <h2>这不是一次“单纯写稿”的活动</h2>
-
-              <p class="upgrade-desc">
-                而是一次从真实临床场景出发的能力升级，把日常经验转化为专业成果。
-              </p>
 
               <div class="upgrade-list">
                 <div class="upgrade-item">
@@ -711,7 +718,7 @@
             </div>
 
             <!-- 活动机会 -->
-            <div class="card">
+            <div class="card chance-card">
               <h2>这次活动，你将有机会</h2>
 
               <div class="chance-list">
