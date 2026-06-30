@@ -8,20 +8,22 @@
   <style>
     :root {
       --scale: 1;
-      --blue: #0b5ca8;
-      --blue2: #168bd6;
-      --dark: #102842;
-      --text: #304056;
-      --muted: #6a7788;
-      --yellow: #ffd66b;
-      --light: #f3f9ff;
-      --card: rgba(255, 255, 255, 0.92);
+      --blue-dark: #073b70;
+      --blue: #0b63b6;
+      --blue-light: #25a3df;
+      --gold: #ffd66b;
+      --orange: #ff9f43;
+      --text: #20344d;
+      --muted: #65758a;
+      --bg: #f5f9ff;
+      --card: rgba(255, 255, 255, 0.93);
+      --border: rgba(207, 225, 242, 0.9);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html,
@@ -30,20 +32,20 @@
       height: 100%;
       overflow: hidden;
       font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-      background: #071f3a;
+      background: #06284e;
       color: var(--text);
     }
 
     .viewport {
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
       display: grid;
       place-items: center;
+      overflow: hidden;
       background:
-        radial-gradient(circle at 15% 10%, rgba(255, 214, 107, 0.28), transparent 28%),
-        radial-gradient(circle at 90% 8%, rgba(65, 183, 232, 0.28), transparent 30%),
-        linear-gradient(135deg, #071f3a 0%, #0b5ca8 55%, #46aee2 100%);
+        radial-gradient(circle at 12% 10%, rgba(255, 214, 107, 0.28), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(37, 163, 223, 0.3), transparent 32%),
+        linear-gradient(135deg, #061c35 0%, #083d74 48%, #0b78c8 100%);
     }
 
     .scale-wrap {
@@ -55,14 +57,14 @@
     .stage {
       width: 1920px;
       height: 1080px;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
       transform: scale(var(--scale));
       transform-origin: top left;
       background:
-        radial-gradient(circle at 5% 2%, rgba(255, 214, 107, 0.36), transparent 24%),
-        radial-gradient(circle at 98% 6%, rgba(79, 186, 232, 0.34), transparent 26%),
-        linear-gradient(180deg, #f7fbff 0%, #ffffff 46%, #fff8e8 100%);
+        radial-gradient(circle at 2% 0%, rgba(255, 214, 107, 0.34), transparent 25%),
+        radial-gradient(circle at 98% 0%, rgba(37, 163, 223, 0.26), transparent 28%),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 48%, #fff8e7 100%);
     }
 
     .stage::before {
@@ -71,235 +73,241 @@
       width: 520px;
       height: 520px;
       border-radius: 50%;
-      right: -170px;
-      top: -160px;
-      background: rgba(11, 92, 168, 0.14);
+      top: -210px;
+      right: -140px;
+      background: rgba(11, 99, 182, 0.12);
     }
 
     .stage::after {
       content: "";
       position: absolute;
-      width: 420px;
-      height: 420px;
+      width: 460px;
+      height: 460px;
       border-radius: 50%;
-      left: -160px;
-      bottom: -180px;
-      background: rgba(255, 214, 107, 0.26);
+      bottom: -220px;
+      left: -180px;
+      background: rgba(255, 214, 107, 0.22);
     }
 
     .content {
       position: relative;
       z-index: 2;
+      width: 100%;
       height: 100%;
       padding: 46px 64px 34px;
       display: grid;
-      grid-template-rows: 250px 432px 282px;
+      grid-template-rows: 250px 454px 260px;
       gap: 18px;
     }
 
     .top {
       display: grid;
-      grid-template-columns: 1.32fr 0.68fr;
-      gap: 22px;
+      grid-template-columns: 1.28fr 0.72fr;
+      gap: 18px;
     }
 
     .hero {
-      padding: 30px 36px;
-      border-radius: 34px;
-      color: #fff;
-      background: linear-gradient(135deg, #0b5ca8 0%, #1788d4 64%, #52b7e8 100%);
-      box-shadow: 0 22px 60px rgba(11, 92, 168, 0.22);
       position: relative;
       overflow: hidden;
+      padding: 30px 38px;
+      border-radius: 34px;
+      color: #fff;
+      background: linear-gradient(135deg, #073b70 0%, #0b63b6 54%, #25a3df 100%);
+      box-shadow: 0 22px 60px rgba(11, 99, 182, 0.22);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -120px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.13);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      right: -72px;
-      top: -90px;
+      right: 70px;
+      bottom: -120px;
       width: 260px;
       height: 260px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 214, 107, 0.13);
     }
 
     .tag {
+      position: relative;
+      z-index: 2;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1;
+      padding: 8px 17px;
       margin-bottom: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
     .tag-dot {
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: var(--yellow);
-      box-shadow: 0 0 0 6px rgba(255, 214, 107, 0.2);
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(255, 214, 107, 0.18);
     }
 
     h1 {
-      font-size: 64px;
-      line-height: 1.08;
+      position: relative;
+      z-index: 2;
       color: #fff;
+      font-size: 66px;
+      line-height: 1.06;
       letter-spacing: -1px;
       font-weight: 900;
-      margin-bottom: 14px;
+      margin-bottom: 15px;
     }
 
-    .hero-subtitle {
-      max-width: 960px;
+    .hero p {
+      position: relative;
+      z-index: 2;
+      max-width: 1080px;
       font-size: 22px;
       line-height: 1.48;
-      opacity: 0.96;
-      font-weight: 400;
+      color: rgba(255, 255, 255, 0.94);
+      font-weight: 500;
     }
 
-    .upgrade-card {
-      padding: 28px 30px;
-      border-radius: 34px;
+    .card {
+      padding: 25px 28px;
+      border-radius: 30px;
       background: var(--card);
-      border: 1px solid rgba(222, 236, 249, 0.9);
-      box-shadow: 0 18px 44px rgba(18, 69, 116, 0.1);
-    }
-
-    .card-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 44px rgba(18, 69, 116, 0.08);
+      overflow: hidden;
     }
 
     .eyebrow {
       color: var(--blue);
       font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
       line-height: 1;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 9px;
     }
 
     h2 {
-      color: var(--dark);
+      color: var(--text);
       font-size: 30px;
-      line-height: 1.18;
+      line-height: 1.15;
       font-weight: 900;
     }
 
-    .small-desc {
+    h3 {
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .upgrade-desc {
+      margin-top: 11px;
       color: var(--muted);
       font-size: 17px;
-      line-height: 1.42;
-      margin-top: 8px;
+      line-height: 1.36;
+      font-weight: 600;
     }
 
-    .shift-list {
+    .upgrade-list {
+      margin-top: 14px;
       display: grid;
-      grid-template-columns: 1fr;
       gap: 10px;
-      margin-top: 16px;
     }
 
-    .shift-item {
+    .upgrade-item {
       display: grid;
       grid-template-columns: 34px 1fr;
       align-items: center;
       gap: 10px;
       padding: 11px 13px;
       border-radius: 16px;
-      background: #f2f8ff;
+      background: #f1f7ff;
+      color: #263d56;
       font-size: 18px;
-      color: #2d4058;
-      line-height: 1.25;
-      font-weight: 700;
+      line-height: 1.2;
+      font-weight: 800;
     }
 
     .check {
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: var(--yellow);
-      color: #17466e;
       display: grid;
       place-items: center;
-      font-weight: 900;
+      background: var(--gold);
+      color: #17466e;
       font-size: 16px;
+      font-weight: 900;
     }
 
     .middle {
       display: grid;
-      grid-template-columns: 0.78fr 1.02fr 0.82fr;
+      grid-template-columns: 0.8fr 1.08fr 0.8fr;
       gap: 18px;
     }
 
-    .panel {
-      border-radius: 30px;
-      background: var(--card);
-      border: 1px solid rgba(222, 236, 249, 0.95);
-      box-shadow: 0 18px 44px rgba(18, 69, 116, 0.08);
-      padding: 24px 26px;
-      overflow: hidden;
-    }
-
-    .value-panel {
+    .value-card {
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 249, 232, 0.95));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 249, 232, 0.95));
     }
 
-    .value-big {
+    .value-main {
       margin-top: 14px;
-      padding: 22px;
+      padding: 21px 22px;
       border-radius: 22px;
       color: #fff;
-      background: linear-gradient(135deg, #0b5ca8, #1a8fd8);
+      background: linear-gradient(135deg, #073b70, #0b72c8);
     }
 
-    .value-big h3 {
+    .value-main h3 {
+      color: #fff;
       font-size: 28px;
-      line-height: 1.26;
-      margin-bottom: 10px;
-      font-weight: 900;
+      line-height: 1.22;
+      margin-bottom: 9px;
     }
 
-    .value-big p {
+    .value-main p {
+      color: rgba(255, 255, 255, 0.92);
       font-size: 18px;
-      line-height: 1.42;
-      opacity: 0.95;
-    }
-
-    .quote-lines {
-      margin-top: 16px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .quote-line {
-      padding: 13px 16px;
-      border-radius: 16px;
-      background: #fff;
-      border: 1px solid #f0e2c8;
-      font-size: 17px;
-      line-height: 1.36;
-      color: #526176;
+      line-height: 1.38;
       font-weight: 600;
     }
 
-    .quote-line strong {
-      color: var(--blue);
-      font-weight: 900;
+    .value-list {
+      margin-top: 14px;
+      display: grid;
+      gap: 9px;
     }
 
-    .timeline-panel {
-      padding-bottom: 22px;
+    .value-item {
+      padding: 12px 15px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid #f0e1c3;
+      color: #526176;
+      font-size: 16px;
+      line-height: 1.32;
+      font-weight: 650;
+    }
+
+    .value-item strong {
+      color: var(--blue);
+      font-weight: 900;
     }
 
     .timeline {
@@ -310,118 +318,113 @@
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 64px 1fr;
+      grid-template-columns: 74px 1fr;
       gap: 12px;
       align-items: stretch;
     }
 
     .date {
+      min-height: 78px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #0b5ca8, #1a8fd8);
-      color: #fff;
       display: grid;
       place-items: center;
       text-align: center;
+      color: #fff;
+      background: linear-gradient(135deg, #0b63b6, #25a3df);
       font-size: 16px;
-      line-height: 1.15;
+      line-height: 1.12;
       font-weight: 900;
-      padding: 8px 6px;
+      padding: 8px 5px;
     }
 
     .timeline-content {
-      padding: 13px 16px;
+      min-height: 78px;
+      padding: 12px 16px;
       border-radius: 18px;
-      background: #f7fbff;
-      border: 1px solid #e5eef8;
+      background: #f6fbff;
+      border: 1px solid #e3edf8;
     }
 
     .timeline-content h3 {
-      color: var(--dark);
       font-size: 20px;
       line-height: 1.12;
-      margin-bottom: 6px;
-      font-weight: 900;
+      margin-bottom: 5px;
     }
 
     .timeline-content p {
-      color: #5f6d7f;
-      font-size: 16px;
-      line-height: 1.34;
-      font-weight: 500;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.32;
+      font-weight: 600;
     }
 
-    .opportunity-list {
+    .chance-list {
+      margin-top: 15px;
       display: grid;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 11px;
     }
 
-    .opportunity-item {
+    .chance-item {
       display: grid;
       grid-template-columns: 42px 1fr;
       gap: 12px;
       align-items: center;
-      padding: 15px 16px;
+      padding: 13px 15px;
       border-radius: 18px;
-      background: #f2f8ff;
-      border: 1px solid #e4eef8;
+      background: #f1f7ff;
+      border: 1px solid #e2edf9;
     }
 
     .num {
       width: 42px;
       height: 42px;
       border-radius: 15px;
-      background: var(--yellow);
-      color: #17466e;
       display: grid;
       place-items: center;
+      background: var(--gold);
+      color: #17466e;
       font-size: 20px;
       font-weight: 900;
     }
 
-    .opportunity-item h3 {
+    .chance-item h3 {
       font-size: 19px;
-      line-height: 1.18;
-      color: var(--dark);
-      font-weight: 900;
+      line-height: 1.16;
       margin-bottom: 4px;
     }
 
-    .opportunity-item p {
-      font-size: 15px;
-      line-height: 1.3;
+    .chance-item p {
       color: var(--muted);
-      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.25;
+      font-weight: 600;
     }
 
     .bottom {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.28fr 0.72fr;
       gap: 18px;
     }
 
-    .topic-panel {
-      padding: 22px 26px;
-    }
-
-    .topic-head {
+    .topics-head {
       display: flex;
-      align-items: flex-end;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
+      align-items: flex-end;
+      gap: 18px;
+      margin-bottom: 15px;
     }
 
-    .topic-head h2 {
-      font-size: 28px;
+    .topics-head h2 {
+      font-size: 29px;
     }
 
-    .topic-head p {
+    .topics-head p {
+      max-width: 560px;
+      text-align: right;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.3;
-      max-width: 520px;
-      text-align: right;
+      line-height: 1.32;
+      font-weight: 600;
     }
 
     .topics {
@@ -431,58 +434,58 @@
     }
 
     .topic {
-      min-height: 142px;
+      height: 146px;
+      padding: 18px;
       border-radius: 22px;
       color: #fff;
-      padding: 18px 18px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(135deg, #0b5ca8, #1a8fd8);
-      box-shadow: 0 16px 36px rgba(11, 92, 168, 0.14);
+      background: linear-gradient(135deg, #073b70, #0b72c8);
+      box-shadow: 0 16px 32px rgba(11, 99, 182, 0.14);
     }
 
     .topic:nth-child(2) {
-      background: linear-gradient(135deg, #1674bb, #3aa9e0);
+      background: linear-gradient(135deg, #0b63b6, #25a3df);
     }
 
     .topic:nth-child(3) {
-      background: linear-gradient(135deg, #108a9f, #41bfd3);
+      background: linear-gradient(135deg, #05899b, #32bdd0);
     }
 
     .topic:nth-child(4) {
-      background: linear-gradient(135deg, #f0a329, #ffd66b);
+      background: linear-gradient(135deg, #f19a2a, #ffd66b);
       color: #17466e;
     }
 
     .topic-icon {
-      font-size: 34px;
+      font-size: 35px;
       line-height: 1;
     }
 
     .topic h3 {
+      color: inherit;
       font-size: 21px;
-      line-height: 1.26;
-      font-weight: 900;
+      line-height: 1.25;
     }
 
     .signup {
       position: relative;
+      overflow: hidden;
       padding: 24px 26px;
       border-radius: 30px;
       color: #fff;
-      background: linear-gradient(135deg, #102842, #0b5ca8);
-      box-shadow: 0 18px 44px rgba(11, 92, 168, 0.16);
-      overflow: hidden;
+      background: linear-gradient(135deg, #102842, #073b70 58%, #0b63b6 100%);
+      box-shadow: 0 18px 44px rgba(11, 99, 182, 0.16);
     }
 
     .signup::after {
       content: "";
       position: absolute;
-      right: -72px;
-      bottom: -90px;
-      width: 240px;
-      height: 240px;
+      right: -80px;
+      bottom: -100px;
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.12);
     }
@@ -490,52 +493,52 @@
     .signup-inner {
       position: relative;
       z-index: 2;
+      height: 100%;
       display: grid;
       grid-template-columns: 1fr 150px;
       gap: 18px;
       align-items: center;
-      height: 100%;
     }
 
     .signup h2 {
       color: #fff;
-      font-size: 30px;
-      line-height: 1.18;
+      font-size: 31px;
+      line-height: 1.15;
       margin-bottom: 12px;
     }
 
     .signup p {
       color: rgba(255, 255, 255, 0.9);
-      font-size: 17px;
-      line-height: 1.42;
-      font-weight: 500;
+      font-size: 16.5px;
+      line-height: 1.38;
+      font-weight: 600;
     }
 
     .reward {
-      margin-top: 14px;
+      margin-top: 13px;
       display: grid;
-      gap: 8px;
+      gap: 7px;
     }
 
     .reward span {
+      width: fit-content;
       display: inline-block;
       padding: 7px 12px;
       border-radius: 999px;
       background: rgba(255, 214, 107, 0.18);
       border: 1px solid rgba(255, 214, 107, 0.42);
-      color: #fff4cb;
-      font-size: 15px;
-      line-height: 1.2;
-      font-weight: 800;
-      width: fit-content;
+      color: #fff3c2;
+      font-size: 14.5px;
+      line-height: 1.15;
+      font-weight: 850;
     }
 
     .qr {
       width: 150px;
       height: 150px;
+      padding: 10px;
       border-radius: 22px;
       background: #fff;
-      padding: 10px;
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
     }
 
@@ -551,43 +554,34 @@
       text-align: center;
       font-size: 15px;
       line-height: 1.35;
-      font-weight: 800;
+      font-weight: 900;
     }
 
-    .footer-note {
+    .footer-left,
+    .footer-right {
       position: absolute;
-      left: 70px;
-      bottom: 11px;
-      color: rgba(16, 40, 66, 0.58);
+      bottom: 12px;
+      z-index: 3;
+      color: rgba(16, 40, 66, 0.56);
       font-size: 14px;
       line-height: 1;
-      z-index: 3;
-    }
-
-    .brand {
-      position: absolute;
-      right: 70px;
-      bottom: 11px;
-      color: rgba(16, 40, 66, 0.58);
-      font-size: 14px;
-      line-height: 1;
-      z-index: 3;
       font-weight: 700;
+    }
+
+    .footer-left {
+      left: 70px;
+    }
+
+    .footer-right {
+      right: 70px;
     }
 
     @media print {
       html,
-      body {
-        width: 1920px;
-        height: 1080px;
-      }
-
-      .viewport {
-        width: 1920px;
-        height: 1080px;
-      }
-
-      .scale-wrap {
+      body,
+      .viewport,
+      .scale-wrap,
+      .stage {
         width: 1920px;
         height: 1080px;
       }
@@ -605,7 +599,7 @@
       <main class="stage">
         <div class="content">
 
-          <!-- 顶部主视觉 -->
+          <!-- 顶部 -->
           <section class="top">
             <div class="hero">
               <div class="tag">
@@ -615,35 +609,32 @@
 
               <h1>把临床经验<br />“卷”成好案例！</h1>
 
-              <p class="hero-subtitle">
-                案例天天见，但不是每一个病例，都会被认真讲出来。
-                GBAH 将携手 UpToDate，面向全科医生、护士等临床一线医务人员，
+              <p>
+                GBAH 将携手 UpToDate，启动案例大赛合作项目！面向全科医生、护士等临床一线医务人员，
                 一起把真实工作中的好思路、好方法、好经验，打磨成能够展示、交流、传播的优秀案例。
               </p>
             </div>
 
-            <div class="upgrade-card">
-              <div class="card-title">
-                <div>
-                  <div class="eyebrow">Ability Upgrade</div>
-                  <h2>这不只是一次“写稿”活动</h2>
-                </div>
-              </div>
+            <div class="card">
+              <div class="eyebrow">Ability Upgrade</div>
+              <h2>这不是一次“单纯写稿”的活动</h2>
 
-              <p class="small-desc">
-                它是一次从真实临床场景出发的能力升级，把日常经验转化为专业成果。
+              <p class="upgrade-desc">
+                而是一次从真实临床场景出发的能力升级，把日常经验转化为专业成果。
               </p>
 
-              <div class="shift-list">
-                <div class="shift-item">
+              <div class="upgrade-list">
+                <div class="upgrade-item">
                   <span class="check">✓</span>
                   <span>从会做，到会总结</span>
                 </div>
-                <div class="shift-item">
+
+                <div class="upgrade-item">
                   <span class="check">✓</span>
                   <span>从会处理，到会表达</span>
                 </div>
-                <div class="shift-item">
+
+                <div class="upgrade-item">
                   <span class="check">✓</span>
                   <span>从日常经验，到专业成果</span>
                 </div>
@@ -651,36 +642,38 @@
             </div>
           </section>
 
-          <!-- 中部内容 -->
+          <!-- 中部 -->
           <section class="middle">
 
-            <!-- 价值说明 -->
-            <div class="panel value-panel">
+            <!-- 为什么参加 -->
+            <div class="card value-card">
               <div class="eyebrow">Why Join</div>
               <h2>为什么值得参加？</h2>
 
-              <div class="value-big">
-                <h3>真正有价值的经验，不只写在教科书里。</h3>
+              <div class="value-main">
+                <h3>真正有价值的经验，并不只写在教科书里。</h3>
                 <p>
-                  它也藏在你每天面对患者时的每一次判断里。
+                  那些你做过的选择、解决过的问题，反复沟通过的患者，一点点积累下来的方法，都值得被认真看见。
                 </p>
               </div>
 
-              <div class="quote-lines">
-                <div class="quote-line">
-                  你做过的选择、解决过的问题，都可能成为一个<strong>打动人</strong>的好案例。
+              <div class="value-list">
+                <div class="value-item">
+                  你的临床判断，可能成为一个<strong>打动人</strong>的好案例。
                 </div>
-                <div class="quote-line">
-                  你反复沟通过的患者、积累下来的方法，都可能成为一个<strong>启发人</strong>的好案例。
+
+                <div class="value-item">
+                  你的沟通与管理经验，可能成为一个<strong>启发人</strong>的好案例。
                 </div>
-                <div class="quote-line">
-                  这个夏天，把临床经验认真“写出来”，让更多人看到基层医务人员的专业力量。
+
+                <div class="value-item">
+                  你的基层实践方法，可能成为一个<strong>帮助人</strong>的好案例。
                 </div>
               </div>
             </div>
 
-            <!-- 时间轴 -->
-            <div class="panel timeline-panel">
+            <!-- 时间安排 -->
+            <div class="card">
               <div class="eyebrow">Timeline</div>
               <h2>时间安排抢先看</h2>
 
@@ -690,7 +683,7 @@
                   <div class="timeline-content">
                     <h3>案例训练营</h3>
                     <p>
-                      UpToDate 专家解读案例评审细则及规范；金牌导师指导选题方向、案例结构、PPT 制作。
+                      邀请 UpToDate 专家解读案例评审细则及规范；金牌导师指导选题方向、案例结构、PPT 制作。
                     </p>
                   </div>
                 </div>
@@ -700,7 +693,7 @@
                   <div class="timeline-content">
                     <h3>作品打磨</h3>
                     <p>
-                      参赛者完善案例内容，金牌导师提供一对一指导，并统一协助提交至 UpToDate 官方投稿渠道。
+                      参赛者完善案例内容，金牌导师提供一对一指导，协助优化作品质量并统一提交官方投稿渠道。
                     </p>
                   </div>
                 </div>
@@ -710,7 +703,7 @@
                   <div class="timeline-content">
                     <h3>内部评选</h3>
                     <p>
-                      GBAH 与 UpToDate 进行内部联合评审，评定前三名，获第四届金牌高峰会门票及荣誉证书。
+                      GBAH 与 UpToDate 内部联合评审前三名；前三名将获得第四届金牌高峰会门票及荣誉证书。
                     </p>
                   </div>
                 </div>
@@ -720,114 +713,116 @@
                   <div class="timeline-content">
                     <h3>第四届金牌高峰会展示</h3>
                     <p>
-                      优秀案例现场展示，第一名获奖者受邀登台分享，展示基层临床一线实践力量。
+                      优秀案例将在现场展示，第一名获奖者受邀登台分享，呈现基层临床一线实践力量。
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- 活动亮点 -->
-            <div class="panel">
-              <div class="eyebrow">Highlights</div>
-              <h2>你将有机会</h2>
+            <!-- 活动机会 -->
+            <div class="card">
+              <div class="eyebrow">Opportunities</div>
+              <h2>这次活动，你将有机会</h2>
 
-              <div class="opportunity-list">
-                <div class="opportunity-item">
+              <div class="chance-list">
+                <div class="chance-item">
                   <div class="num">1</div>
                   <div>
                     <h3>找到更有价值的选题方向</h3>
-                    <p>从临床工作中提炼代表性案例。</p>
+                    <p>从临床工作中提炼值得分享的案例。</p>
                   </div>
                 </div>
 
-                <div class="opportunity-item">
+                <div class="chance-item">
                   <div class="num">2</div>
                   <div>
                     <h3>持续优化案例作品</h3>
-                    <p>训练营与打磨期持续优化表达。</p>
+                    <p>在训练营和打磨期中优化作品质量。</p>
                   </div>
                 </div>
 
-                <div class="opportunity-item">
+                <div class="chance-item">
                   <div class="num">3</div>
                   <div>
-                    <h3>向更大展示平台迈进</h3>
-                    <p>通过内部评选进入高峰会展示。</p>
+                    <h3>向更大展示平台迈进一步</h3>
+                    <p>通过内部评选获得展示机会。</p>
                   </div>
                 </div>
 
-                <div class="opportunity-item">
+                <div class="chance-item">
                   <div class="num">4</div>
                   <div>
                     <h3>让优秀案例被同行看见</h3>
-                    <p>传播基层临床一线专业思考。</p>
+                    <p>在第四届金牌高峰会上展示成果。</p>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- 底部内容 -->
+          <!-- 底部 -->
           <section class="bottom">
 
-            <!-- 投稿方向 -->
-            <div class="panel topic-panel">
-              <div class="topic-head">
+            <!-- 案例方向 -->
+            <div class="card">
+              <div class="topics-head">
                 <div>
                   <div class="eyebrow">Case Topics</div>
                   <h2>投稿案例方向</h2>
                 </div>
+
                 <p>
-                  结合基层医疗真实工作场景，选择你最有经验、最有思考、最想分享的方向。
+                  围绕基层临床真实工作场景，选择最有经验、最有思考、最想分享的方向。
                 </p>
               </div>
 
               <div class="topics">
                 <div class="topic">
-                  <div class="topic-icon">🧭</div>
+                  <div class="topic-icon">01</div>
                   <h3>全科临床<br />决策案例</h3>
                 </div>
 
                 <div class="topic">
-                  <div class="topic-icon">🩺</div>
+                  <div class="topic-icon">02</div>
                   <h3>护理评估与<br />照护决策案例</h3>
                 </div>
 
                 <div class="topic">
-                  <div class="topic-icon">🔁</div>
+                  <div class="topic-icon">03</div>
                   <h3>多学科协作 /<br />转诊闭环案例</h3>
                 </div>
 
                 <div class="topic">
-                  <div class="topic-icon">🌱</div>
+                  <div class="topic-icon">04</div>
                   <h3>患者教育与<br />慢病管理案例</h3>
                 </div>
               </div>
             </div>
 
-            <!-- 报名引导 -->
+            <!-- 报名 -->
             <div class="signup">
               <div class="signup-inner">
                 <div>
-                  <h2>扫码报名<br />加入案例大赛</h2>
+                  <h2>扫码填写<br />报名信息</h2>
+
                   <p>
-                    欢迎扫描二维码填写报名信息。我们将根据报名情况，后续同步案例训练营安排、活动细则及相关通知。
+                    如果你有兴趣参加本次案例大赛，欢迎扫描二维码填写报名信息。我们将后续同步案例训练营安排、活动细则及相关通知。
                   </p>
 
                   <div class="reward">
                     <span>前三名：第四届金牌高峰会门票 1 张</span>
-                    <span>现场荣誉证书 + 优秀案例展示机会</span>
+                    <span>荣誉证书 + 高峰会现场展示机会</span>
                   </div>
                 </div>
 
                 <div class="qr">
                   <!--
                     替换二维码方法：
-                    1. 将二维码图片命名为 qrcode.png
+                    1. 将报名二维码图片命名为 qrcode.png
                     2. 与 index.html 放在同一个文件夹
-                    3. 删除下面的 div
-                    4. 取消下方 img 注释
+                    3. 删除下面的 qr-placeholder
+                    4. 取消下方 img 注释即可
 
                     <img src="qrcode.png" alt="报名二维码" style="width:100%;height:100%;object-fit:cover;border-radius:15px;">
                   -->
@@ -840,11 +835,11 @@
           </section>
         </div>
 
-        <div class="footer-note">
+        <div class="footer-left">
           期待与你一起，把真实病例打磨成真正有价值、有温度、有影响力的优秀案例。
         </div>
 
-        <div class="brand">
+        <div class="footer-right">
           GBAH × UpToDate 2026
         </div>
       </main>
