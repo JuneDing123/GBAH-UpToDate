@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GBAH × UpToDate 案例大赛</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      color: #243044;
+      background:
+        radial-gradient(circle at top left, rgba(255, 198, 88, 0.25), transparent 28%),
+        radial-gradient(circle at top right, rgba(34, 117, 209, 0.18), transparent 30%),
+        linear-gradient(180deg, #f7fbff 0%, #ffffff 48%, #fff9ef 100%);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding: 72px 24px 86px;
+      background:
+        linear-gradient(135deg, #0b5ca8 0%, #1788d4 58%, #52b7e8 100%);
+      color: #fff;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -110px;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      left: -80px;
+      bottom: -90px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .tag span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffd66b;
+      box-shadow: 0 0 0 6px rgba(255, 214, 107, 0.18);
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      max-width: 620px;
+      font-size: 20px;
+      line-height: 1.9;
+      opacity: 0.96;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #ffd66b;
+      color: #11436f;
+      box-shadow: 0 10px 24px rgba(15, 66, 110, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(15, 66, 110, 0.28);
+    }
+
+    .btn-ghost {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 34px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 70px rgba(0, 43, 89, 0.26);
+    }
+
+    .hero-card-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero-card p {
+      font-size: 16px;
+      opacity: 0.95;
+      margin-bottom: 18px;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .hero-card-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .check {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #ffd66b;
+      color: #11436f;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 76px 24px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 46px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #0b73bd;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.32;
+      color: #102842;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 18px;
+      color: #5b6b7f;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .intro-card {
+      padding: 30px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid #e7eef7;
+      box-shadow: 0 18px 46px rgba(18, 69, 116, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .intro-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(18, 69, 116, 0.12);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 26px;
+      background: linear-gradient(135deg, #eef7ff, #fff3d3);
+    }
+
+    .intro-card h3 {
+      font-size: 21px;
+      color: #102842;
+      margin-bottom: 12px;
+    }
+
+    .intro-card p {
+      color: #5b6b7f;
+      font-size: 16px;
+    }
+
+    .blue-section {
+      background: #f1f8ff;
+    }
+
+    .expectation {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .quote-box {
+      padding: 38px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #0b5ca8, #1a8fd8);
+      color: #fff;
+      box-shadow: 0 22px 56px rgba(11, 92, 168, 0.22);
+    }
+
+    .quote-box .big {
+      font-size: 30px;
+      line-height: 1.5;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .quote-box p {
+      font-size: 17px;
+      opacity: 0.95;
+    }
+
+    .expect-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .expect-item {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid #e5eef7;
+      box-shadow: 0 12px 34px rgba(18, 69, 116, 0.07);
+    }
+
+    .num {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffd66b;
+      color: #11436f;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .expect-item h3 {
+      font-size: 20px;
+      color: #102842;
+      margin-bottom: 6px;
+    }
+
+    .expect-item p {
+      color: #5b6b7f;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 22px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(180deg, #0b73bd, #ffd66b);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 20px;
+    }
+
+    .timeline-dot {
+      position: relative;
+      z-index: 2;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #0b73bd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b73bd;
+      font-weight: 900;
+      box-shadow: 0 10px 28px rgba(11, 115, 189, 0.15);
+    }
+
+    .timeline-content {
+      padding: 26px 28px;
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid #e7eef7;
+      box-shadow: 0 18px 44px rgba(18, 69, 116, 0.08);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      padding: 5px 12px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: #0b73bd;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .timeline-content h3 {
+      font-size: 22px;
+      color: #102842;
+      margin-bottom: 8px;
+    }
+
+    .timeline-content p {
+      color: #5b6b7f;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .topic-card {
+      min-height: 168px;
+      padding: 24px;
+      border-radius: 24px;
+      color: #fff;
+      background: linear-gradient(135deg, #0b5ca8, #1a8fd8);
+      box-shadow: 0 18px 44px rgba(11, 92, 168, 0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .topic-card:nth-child(2) {
+      background: linear-gradient(135deg, #1674bb, #39a7df);
+    }
+
+    .topic-card:nth-child(3) {
+      background: linear-gradient(135deg, #108a9f, #43c6d9);
+    }
+
+    .topic-card:nth-child(4) {
+      background: linear-gradient(135deg, #f3a72e, #ffd66b);
+      color: #17456d;
+    }
+
+    .topic-card span {
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .topic-card h3 {
+      font-size: 20px;
+      line-height: 1.45;
+      margin-top: 24px;
+    }
+
+    .value-section {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,249,239,0.96)),
+        radial-gradient(circle at center, rgba(255, 214, 107, 0.22), transparent 42%);
+    }
+
+    .value-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .value-card {
+      padding: 34px;
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid #f1e5cf;
+      box-shadow: 0 18px 46px rgba(137, 87, 12, 0.08);
+    }
+
+    .value-card h3 {
+      font-size: 24px;
+      color: #102842;
+      margin-bottom: 18px;
+    }
+
+    .value-card p {
+      color: #5b6b7f;
+      font-size: 17px;
+      margin-bottom: 14px;
+    }
+
+    .highlight {
+      color: #0b73bd;
+      font-weight: 800;
+    }
+
+    .cta {
+      padding: 82px 24px;
+      background: linear-gradient(135deg, #102842, #0b5ca8);
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta-card {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 46px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .cta h2 {
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: 0 auto 26px;
+      font-size: 18px;
+      opacity: 0.94;
+    }
+
+    .qr-wrap {
+      width: 180px;
+      height: 180px;
+      margin: 26px auto 18px;
+      padding: 12px;
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-placeholder {
+      width: 100%;
+      height: 100%;
+      border: 2px dashed #99adc1;
+      border-radius: 14px;
+      color: #7b8da0;
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      background: #f7fbff;
+    }
+
+    .tip {
+      font-size: 14px !important;
+      opacity: 0.78 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .footer {
+      padding: 28px 24px;
+      text-align: center;
+      color: #6a7888;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner,
+      .expectation,
+      .value-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-grid,
+      .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 56px 18px;
+      }
+
+      .hero {
+        padding: 48px 18px 64px;
+      }
+
+      .intro-grid,
+      .topics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .timeline::before {
+        left: 24px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 50px 1fr;
+        gap: 14px;
+      }
+
+      .timeline-dot {
+        width: 50px;
+        height: 50px;
+        font-size: 14px;
+      }
+
+      .timeline-content {
+        padding: 22px;
+      }
+
+      .cta-card {
+        padding: 34px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- 首屏 -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <div class="tag"><span></span>GBAH × UpToDate 2026 案例大赛</div>
+          <h1>把临床经验<br />“卷”成好案例</h1>
+          <p class="hero-subtitle">
+            案例天天见，但不是每一个病例，都会被认真讲出来。
+            这一次，我们希望和临床一线的你一起，把真实工作中的好思路、好方法、好经验，
+            打磨成能够展示、交流、传播的优秀案例。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#signup">立即了解报名</a>
+            <a class="btn btn-ghost" href="#timeline">查看活动安排</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-title">这不只是一次“写稿”活动</div>
+          <p>
+            它是一次从真实临床场景出发的能力升级，也是一次让基层医务人员专业思考被更多同行看见的机会。
+          </p>
+          <ul class="hero-card-list">
+            <li><span class="check">✓</span><span>从会做，到会总结</span></li>
+            <li><span class="check">✓</span><span>从会处理，到会表达</span></li>
+            <li><span class="check">✓</span><span>从日常经验，到专业成果</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活动介绍 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">About</span>
+          <h2>为什么要参加这次案例大赛？</h2>
+          <p class="section-desc">
+            你每天面对患者时的每一次判断、沟通与处理，都可能成为一个打动人、启发人、帮助人的好案例。
+          </p>
+        </div>
+
+        <div class="intro-grid">
+          <div class="intro-card">
+            <div class="icon">🩺</div>
+            <h3>真实临床场景</h3>
+            <p>
+              从日常工作中挖掘值得分享的临床判断、照护决策、沟通经验与管理方法。
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="icon">✨</div>
+            <h3>专业导师打磨</h3>
+            <p>
+              通过训练营与作品打磨期，持续优化案例选题、结构、表达与展示质量。
+            </p>
+          </div>
+
+          <div class="intro-card">
+            <div class="icon">🏆</div>
+            <h3>更大展示平台</h3>
+            <p>
+              优秀案例有机会在第四届金牌高峰会现场展示，让更多同行看见你的专业实践。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 期待亮点 -->
+    <section class="section blue-section">
+      <div class="container">
+        <div class="expectation">
+          <div class="quote-box">
+            <div class="big">
+              让真实病例，成为真正有价值、有温度、有影响力的优秀案例。
+            </div>
+            <p>
+              GBAH 将携手 UpToDate，面向全科医生、护士等临床一线医务人员，启动案例大赛合作项目。
+            </p>
+          </div>
+
+          <div class="expect-list">
+            <div class="expect-item">
+              <div class="num">1</div>
+              <div>
+                <h3>找到更有价值的选题方向</h3>
+                <p>从真实临床工作中提炼具有代表性、启发性和传播价值的案例主题。</p>
+              </div>
+            </div>
+
+            <div class="expect-item">
+              <div class="num">2</div>
+              <div>
+                <h3>持续优化案例作品</h3>
+                <p>在训练营和打磨期中获得专业指导，进一步完善内容逻辑与展示表达。</p>
+              </div>
+            </div>
+
+            <div class="expect-item">
+              <div class="num">3</div>
+              <div>
+                <h3>向更大平台迈进一步</h3>
+                <p>通过内部评选，优秀作品将有机会进入第四届金牌高峰会展示环节。</p>
+              </div>
+            </div>
+
+            <div class="expect-item">
+              <div class="num">4</div>
+              <div>
+                <h3>让优秀案例被更多同行看见</h3>
+                <p>第一名获奖者还将受邀登台进行案例分享，展示基层临床一线的专业思考。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 时间安排 -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Timeline</span>
+          <h2>时间安排抢先看</h2>
+          <p class="section-desc">
+            从案例训练营到高峰会展示，一起把经验一步步打磨成成果。
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">01</div>
+            <div class="timeline-content">
+              <span class="timeline-date">2026年7月15日–16日</span>
+              <h3>案例训练营</h3>
+              <p>
+                邀请 UpToDate 专家围绕案例评审细则及规范进行解读；
+                同时由金牌导师针对选题方向、案例结构、PPT 制作等内容进行指导。
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">02</div>
+            <div class="timeline-content">
+              <span class="timeline-date">2026年7月31日–9月15日</span>
+              <h3>作品打磨</h3>
+              <p>
+                参赛者进一步完善案例内容，金牌导师提供一对一指导，
+                协助大家优化作品质量，并统一协助提交案例至 UpToDate 官方投稿渠道。
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">03</div>
+            <div class="timeline-content">
+              <span class="timeline-date">2026年9月30日–10月15日</span>
+              <h3>内部评选</h3>
+              <p>
+                GBAH 与 UpToDate 将进行内部联合评审，评定前三名。
+                内部评选前三名将获得第四届金牌高峰会门票一张，并将在高峰会现场获得荣誉证书。
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">04</div>
+            <div class="timeline-content">
+              <span class="timeline-date">2026年11月</span>
+              <h3>第四届金牌高峰会展示</h3>
+              <p>
+                优秀案例将在第四届金牌高峰会现场展示。
+                第一名获奖者将受邀登台进行案例分享，让更多同行看到来自基层临床一线的专业思考与实践力量。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 投稿方向 -->
+    <section class="section blue-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Topics</span>
+          <h2>投稿案例方向</h2>
+          <p class="section-desc">
+            结合基层医疗真实工作场景，选择你最有经验、最有思考、最想分享的方向。
+          </p>
+        </div>
+
+        <div class="topics-grid">
+          <div class="topic-card">
+            <span>🧭</span>
+            <h3>全科临床<br />决策案例</h3>
+          </div>
+
+          <div class="topic-card">
+            <span>🤝</span>
+            <h3>护理评估与<br />照护决策案例</h3>
+          </div>
+
+          <div class="topic-card">
+            <span>🔁</span>
+            <h3>多学科协作 /<br />转诊闭环案例</h3>
+          </div>
+
+          <div class="topic-card">
+            <span>🌱</span>
+            <h3>患者教育与<br />慢病管理案例</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 价值表达 -->
+    <section class="section value-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Value</span>
+          <h2>你的经验，值得被认真看见</h2>
+        </div>
+
+        <div class="value-layout">
+          <div class="value-card">
+            <h3>真正有价值的经验，不只写在教科书里</h3>
+            <p>
+              它也藏在你每天面对患者时的每一次判断里，
+              藏在你解决过的问题、反复沟通过的患者、不断积累下来的方法里。
+            </p>
+            <p>
+              这些真实经验，经过整理、提炼和表达，
+              就可能成为一个<span class="highlight">打动人、启发人、帮助人的好案例</span>。
+            </p>
+          </div>
+
+          <div class="value-card">
+            <h3>这个夏天，把临床经验认真“写出来”</h3>
+            <p>
+              这不是一次单纯的投稿，而是一次让个人经验转化为专业成果的机会。
+            </p>
+            <p>
+              也让更多人看到，基层医务人员的专业思考，
+              到底有多有力量。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 报名引导 -->
+    <section class="cta" id="signup">
+      <div class="cta-card">
+        <h2>欢迎报名参加 GBAH × UpToDate 案例大赛</h2>
+        <p>
+          如果你有兴趣参加本次案例大赛，欢迎扫描下方二维码，填写报名信息。
+          我们将根据报名情况，后续同步案例训练营安排、活动细则及相关通知。
+        </p>
+
+        <div class="qr-wrap">
+          <!-- 
+            使用方法：
+            1. 将你的报名二维码图片命名为 qrcode.png
+            2. 与本 index.html 放在同一文件夹
+            3. 删除下面的 div，并取消下一行 img 注释即可
+            
+            <img src="qrcode.png" alt="报名二维码" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
+          -->
+          <div class="qr-placeholder">
+            在此替换<br />报名二维码
+          </div>
+        </div>
+
+        <p class="tip">
+          期待与你一起，把真实病例打磨成真正有价值、有温度、有影响力的优秀案例。
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 GBAH × UpToDate 案例大赛｜让基层临床经验被看见
+    </footer>
+
+  </div>
+</body>
+</html>
